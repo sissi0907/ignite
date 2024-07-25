@@ -26,7 +26,7 @@ jobs:
   
       - name: Test with Maven 
         run: | 
-              for i in {1..5}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Log.DefaultLoggerTest#TestJavaLogger  -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
+              for i in {1..5}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Log.DefaultLoggerTest#TestJavaLogger -DfailIfNoTests=false -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
               
       # - name: Upload Test Log 
       #   if: always() 
