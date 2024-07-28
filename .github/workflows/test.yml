@@ -15,18 +15,18 @@ jobs:
           java-version: '8'
           
       # - name: maven clean install 
-      #   run: mvn clean install -Dcheckstyle.skip -Drat.skip -U
+      #   run: mvn clean install -Dcheckstyle.skip -Drat.skip -DskipTests -U
         
       # - name: Compile Module
       #   run: mvn test-compile -am -Dcheckstyle.skip -Drat.skip -U
       - name: Check
         uses: actions/checkout@v3
         with:
-          ref: d3c868670252cd44d003ae1ffb31cad857674c4b
+          ref: 24a50e1045a759aff584b5d651cc46ce9047394b
   
       - name: Test with Maven 
         run: | 
-              for i in {1..5}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Client.Compute.ComputeClientTests#TestExecuteJavaTaskAsyncCancellation -DfailIfNoTests=false -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
+              for i in {1..5}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Log.DefaultLoggerTest#TestJavaLogger -DfailIfNoTests=false -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
               
       # - name: Upload Test Log 
       #   if: always() 
