@@ -22,11 +22,11 @@ jobs:
       - name: Check
         uses: actions/checkout@v3
         with:
-          ref: 535437336b1fd0e382c19f220d511fea52dbf889
+          ref: d3c868670252cd44d003ae1ffb31cad857674c4b
   
       - name: Test with Maven 
         run: | 
-              for i in {1..5}; do mvn test -Dtest=org.apache.ignite.internal.processors.cache.persistence.pagemem.PagesWriteThrottleSmokeTest#testThrottle -DfailIfNoTests=false -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
+              for i in {1..5}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Client.Compute.ComputeClientTests#TestExecuteJavaTaskAsyncCancellation -DfailIfNoTests=false -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
               
       # - name: Upload Test Log 
       #   if: always() 
