@@ -22,15 +22,15 @@ jobs:
       - name: Check
         uses: actions/checkout@v3
         with:
-          ref: 2b0ee2d3db43904af6e3409eacbfd31500d2432b
+          ref: 423ac68f27f4a5cf259a7740b73279b3baaa4e3e
   
       - name: Test with Maven 
         run: | 
-              for i in {1..100}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Binary.TypeNameParserTest -DfailIfNoTests=false  -Drat.skip -fae>>test_log_IGNITE-15845.txt || echo "Test iteration $i failed">>IGNITE-15845.txt; done
+              for i in {1..5}; do mvn test -Dtest=org.apache.ignite.spi.discovery.tcp.TcpDiscoverySelfTest#testCustomEventCoordinatorFailure1 -DfailIfNoTests=false  -Drat.skip -fae; done#>>test_log_IGNITE-15845.txt || echo "Test iteration $i failed">>IGNITE-15845.txt; done
               
-      - name: Upload Test Log 
-        if: always() 
-        uses: actions/upload-artifact@v2 
-        with: 
-          name: test_log_IGNITE-15845
-          path: test_log_IGNITE-15845.txt
+      # - name: Upload Test Log 
+      #   if: always() 
+      #   uses: actions/upload-artifact@v2 
+      #   with: 
+      #     name: test_log_IGNITE-15845
+      #     path: test_log_IGNITE-15845.txt
