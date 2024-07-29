@@ -22,11 +22,11 @@ jobs:
       - name: Check
         uses: actions/checkout@v3
         with:
-          ref: ff203b2ee8e8a05f0783b440f2da8f6fbc4beb8d
+          ref: 2b0ee2d3db43904af6e3409eacbfd31500d2432b
   
       - name: Test with Maven 
         run: | 
-              for i in {1..5}; do mvn test -Dtest=org.apache.ignite.internal.util.HostAndPortRangeTest -DfailIfNoTests=false  -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
+              for i in {1..5}; do mvn test -Dtest=Apache.Ignite.Core.Tests.Binary.TypeNameParserTest -DfailIfNoTests=false  -Drat.skip -fae; done#>>test_log_DOXIATOOLS-64.txt || echo "Test iteration $i failed">>test_log_DOXIATOOLS-64.txt; done
               
       # - name: Upload Test Log 
       #   if: always() 
